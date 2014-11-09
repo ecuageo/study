@@ -3,7 +3,20 @@
 CC = gcc
 CFLAGS = -Wall -g
 
-current: llstacktest
+current: quicksorttest
+
+#
+# Sorting with quicksort
+#
+
+quicksorttest: quicksorttest.o quicksort.o
+	$(CC) $(CFLAGS) -o quicksorttest quicksorttest.o quicksort.o
+
+quicksorttest.o: quicksorttest.c quicksort.h
+	$(CC) $(CFLAGS) -c quicksorttest.c
+
+quicksort.o: quicksort.c quicksort.h
+	$(CC) $(CFLAGS) -c quicksort.c
 
 #
 # linked list stacks
